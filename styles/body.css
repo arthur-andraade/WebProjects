@@ -1,0 +1,74 @@
+main {
+    display: flex;
+}
+
+.banner {
+    height: 79.5vh;
+}
+
+.bodyDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    background: #fcf8cb;
+    width: 100%;
+}
+
+.bodyDescription h1 + span,
+.bodyDescription span + button {
+    margin-top: 18px;
+}
+
+.bodyDescription span, 
+.bodyDescription h1 {
+    color: #32312d;
+}
+
+.bodyDescription h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    letter-spacing: 1.2px;
+}
+
+.bodyDescription span {
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+
+.btnExploreCoffe {
+    background: #006c49;
+    border: 1px solid #006c49;
+    border-radius: 18px;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.btnExploreCoffe:hover {
+    background: white;
+    color: #006c49;
+}
+
+@media (max-width: 1000px){
+    main {
+        flex-direction: column;
+    }
+
+    .banner {
+        height: 40vh;
+    }
+
+    .bodyDescription {
+        padding-top: 15px;
+    }
+
+    .bodyDescription h1 {
+        text-align: center;
+    }
+}
