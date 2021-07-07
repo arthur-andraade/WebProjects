@@ -33,7 +33,7 @@
   object-fit: cover;
 }
 
-@media (max-width: 1000px){
+@media screen and (max-width: 1000px){
 
   .menuToggle{
     display: inline-block;
@@ -50,6 +50,18 @@
     height: 3px;
     margin: 4px auto;
   }
-
   
+}
+
+@media screen and (max-width: 750px) {
+  
+  .atHome {
+    padding: 1.7rem 0;
+  }  
+  
+  .starbucksLogo {
+      width: 44.5vw;
+      margin-left: 15px;
+      margin-bottom: 2px;
+    }
 }
