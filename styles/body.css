@@ -3,7 +3,7 @@ main {
 }
 
 .banner {
-    height: 70.5vh;
+    height: 70vh;
 }
 
 .bodyDescription {
@@ -71,7 +71,7 @@ main {
     }
 
     .banner {
-        object-fit: cover;
+        height: 42vh;
     }
 
     .bodyDescription {
