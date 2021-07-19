@@ -4,20 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   
     <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="stylesheet" href="styles/header.css" />
     <link rel="stylesheet" href="styles/body.css" />
     <link rel="stylesheet" href="styles/menu.css">
-    <link rel="stylesheet" href="styles/loginModal.css">
-
     <title>Startbucks® na sua casa | Starbucks</title>
 </head>
 <body>
@@ -30,21 +28,6 @@
       <div class="logoAndMenuResponsive">
         <div class="starbucksLogo">
           <img src="assets/starbucks_logo.png" alt="logoStarbucks" />
-        </div>
-        <div class="navigation">
-          <div class="search">
-            <input 
-              id="inputSearch" 
-              type="text" 
-              placeholder="Busque aqui"
-              list="coins"
-            >
-            <datalist id="coins"></datalist>
-            <div class="searchBtn">
-              <img src="assets/search-icon.png" alt="Busque"/>  
-            </div>
-          </div>
-          <button class="loginBtn">Login</button>
         </div>
         <div class="menuToggle">
           <div class="one"></div>
@@ -68,33 +51,5 @@
             <button class="btnExploreCoffe">Explore nossos cafés</button>
         </div>
     </main>
-
-<!-- Modal -->
-  <div id="background-modal" class='modal-container'>
-    <div class=container>
-      <button class="exitModal">
-        <img  class="closeBtn" src="assets/close-icon.png" alt="Fechar">
-      </button>
-      <div class=greeting>
-        <span class='welcome'>Seja Bem-Vindo(a)</span>
-        <span class='yourAccount'>Entre com suas credenciais para acessar sua conta</span>
-      </div>
-      
-      <div class="content">
-        <span class="errorMessage">Email e/ou senha incorretos!</span>
-        <div class="content-area-login">
-          <input id="email" type="text" placeholder="Insira seu e-mail">
-        </div>
-        <div class="content-area-password">
-          <input id="password" type="password" placeholder="Insira sua senha">
-        </div>
-        <button type="submit" class="submitBtn" >Entrar</button>
-      </div>
-    </div>
-  </div>
-  
-  <script src="./scripts/modal.js"></script>
-  <script src="scripts/searchAPI.js"></script>
-  <script src="scripts/login.js"></script>
 </body>
 </html>
