@@ -1,31 +1,46 @@
 const URL_API_LOGIN = "https://reqres.in";
 let request_login = new XMLHttpRequest();
 
-if(localStorage.getItem("token")){
-  document.getElementsByClassName('loginBtn')[0].style.display = 'none';
+function enableBtnSearch() {
+  document.getElementsByClassName("searchBtn")[0].classList.add("enable")
 }
 
-function login(){
+function enableInputSearch(enable) {
+  document.getElementById("inputSearch").disabled = !enable;
+  if (enable) {
+    enableBtnSearch()
+  }
+}
+
+if (localStorage.getItem("token")) {
+  document.getElementsByClassName('loginBtn')[0].style.display = 'none';
+  enableBtnSearch()
+} else {
+  enableInputSearch(false)
+}
+
+function login() {
 
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value
-  
-  if(validation(email, password)){
-    
+
+  if (validation(email, password)) {
+
     let data = {
       email,
       password
     }
     request_login.open("POST", URL_API_LOGIN + "/api/login", true);
     request_login.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-    request_login.onreadystatechange = function(){
-      if(request_login.readyState === 4 && request_login.status === 200){
-          localStorage.setItem("token", JSON.parse(request_login.responseText).token)
-          document.getElementsByClassName('loginBtn')[0].style.display = 'none';
-          document.getElementsByClassName('modal-container')[0].style.display = 'none';
-      }else if(request_login.status === 400){
+    request_login.onreadystatechange = function () {
+      if (request_login.readyState === 4 && request_login.status === 200) {
+        localStorage.setItem("token", JSON.parse(request_login.responseText).token)
+        document.getElementsByClassName('loginBtn')[0].style.display = 'none';
+        document.getElementsByClassName('modal-container')[0].style.display = 'none';
+        enableInputSearch(true)
+      } else if (request_login.status === 400) {
         document.getElementsByClassName('errorMessage')[0].style.display = 'flex'
-        
+
       }
     }
     request_login.send(JSON.stringify(data));
@@ -33,13 +48,13 @@ function login(){
 
 }
 
-function validation(email, password){
-  if(email.length < 3){   
-      document.getElementsByClassName('errorMessage')[0].style.display = 'flex'
-      document.getElementsByClassName('errorMessage')[0].textContent = 'E-mail inválido!'
-      return false
+function validation(email, password) {
+  if (email.length < 3) {
+    document.getElementsByClassName('errorMessage')[0].style.display = 'flex'
+    document.getElementsByClassName('errorMessage')[0].textContent = 'E-mail inválido!'
+    return false
   }
-  if(password.length < 3){
+  if (password.length < 3) {
     document.getElementsByClassName('errorMessage')[0].style.display = 'flex'
     document.getElementsByClassName('errorMessage')[0].textContent = 'Senha inválida!'
     return false
