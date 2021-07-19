@@ -1,22 +1,18 @@
 const URL_API_LOGIN = "https://reqres.in";
 let request_login = new XMLHttpRequest();
 
-function enableBtnSearch() {
-  document.getElementsByClassName("searchBtn")[0].classList.add("enable")
-}
-
-function enableInputSearch(enable) {
+function enableSearch(enable) {
   document.getElementById("inputSearch").disabled = !enable;
   if (enable) {
-    enableBtnSearch()
+    document.getElementsByClassName("searchBtn")[0].classList.add("enable")
   }
 }
 
 if (localStorage.getItem("token")) {
   document.getElementsByClassName('loginBtn')[0].style.display = 'none';
-  enableBtnSearch()
+  enableSearch(true)
 } else {
-  enableInputSearch(false)
+  enableSearch(false)
 }
 
 function login() {
@@ -37,7 +33,7 @@ function login() {
         localStorage.setItem("token", JSON.parse(request_login.responseText).token)
         document.getElementsByClassName('loginBtn')[0].style.display = 'none';
         document.getElementsByClassName('modal-container')[0].style.display = 'none';
-        enableInputSearch(true)
+        enableSearch(true)
       } else if (request_login.status === 400) {
         document.getElementsByClassName('errorMessage')[0].style.display = 'flex'
 

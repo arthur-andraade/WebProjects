@@ -23,13 +23,15 @@ function searchCoin(coinName) {
         }
     }
 
-    request.open('GET', URL_API + `/${coinId}`, true)
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            console.log(JSON.parse(request.responseText))
+    if(coinId){
+        request.open('GET', URL_API + `/${coinId}`, true)
+        request.onreadystatechange = function () {
+            if (request.readyState === 4 && request.status === 200) {
+                console.log(JSON.parse(request.responseText))
+            }
         }
+        request.send()
     }
-    request.send()
 }
 
 function clickSearch() {
