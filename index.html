@@ -33,7 +33,13 @@
         </div>
         <div class="navigation">
           <div class="search">
-            <input type="text" placeholder="Busque aqui">
+            <input 
+              id="inputSearch" 
+              type="text" 
+              placeholder="Busque aqui"
+              list="coins"
+            >
+            <datalist id="coins"></datalist>
             <div class="searchBtn">
               <img src="assets/search-icon.png" alt="Busque"/>  
             </div>
@@ -88,5 +94,6 @@
   </div>
   
   <script src="./scripts/modal.js"></script>
+  <script src="scripts/searchAPI.js"></script>
 </body>
 </html>
