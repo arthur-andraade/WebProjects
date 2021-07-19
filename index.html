@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,14 +13,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles/global.css" />
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/body.css" />
-    <link rel="stylesheet" href="styles/menu.css">
-    <link rel="stylesheet" href="styles/loginModal.css">
+  <link rel="stylesheet" href="styles/global.css" >
+  <link rel="stylesheet" href="styles/header.css" >
+  <link rel="stylesheet" href="styles/body.css" >
+  <link rel="stylesheet" href="styles/menu.css">
+  <link rel="stylesheet" href="styles/loginModal.css">
+  <link rel="stylesheet" href="styles/dataModal.css">
 
-    <title>Startbucks® na sua casa | Starbucks</title>
+  <title>Startbucks® na sua casa | Starbucks</title>
 </head>
+
 <body>
     <header>
       <div class="atHome">
@@ -69,7 +72,7 @@
         </div>
     </main>
 
-<!-- Modal -->
+  <!-- Modal -->
   <div id="background-modal" class='modal-container'>
     <div class=container>
       <button class="exitModal">
@@ -92,9 +95,32 @@
       </div>
     </div>
   </div>
-  
+
+  <!--Modal do dados da API-->
+  <div id="data-modal" class="modal-container">
+    <div class="container">
+      <button class="exitModal">
+        <img class="closeBtn" src="assets/close-icon.png" alt="Fechar">
+      </button>
+      <div class="content">
+        <div class="info">
+          <span class="info-name">Nome</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info">
+          <span class="info-name">Nome</span>
+          <span class="info-value"></span>
+        </div>
+        <div class="info">
+          <span class="info-name">Nome</span>
+          <span class="info-value"></span>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="./scripts/modal.js"></script>
   <script src="scripts/searchAPI.js"></script>
   <script src="scripts/login.js"></script>
 </body>
+
 </html>
