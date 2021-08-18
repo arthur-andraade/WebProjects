@@ -3,7 +3,7 @@ const User = require('../model/User');
 module.exports = {
 
   async register(request, response){
-    const { email, password } = request.body;
+    const { email } = request.body;
 
     try{
       if (await User.findOne({ email })){

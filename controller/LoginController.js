@@ -1,14 +1,19 @@
+const User = require("../model/User");
 const gerarToken = require("../utils/jwt");
 
-function signIn(request, response) {
-    const body = request.body;
-    if (body.nome && body.senha) {
-        const token = gerarToken(body)
+async function signIn(request, response) {
+    const dados = request.body;
+    const userFinded = await User.findOne({
+        email: dados.email
+    });
+
+    if (userFinded) {
+        const token = gerarToken(dados)
         response.cookie('token', token);
         return response.status(200).send();
     }
 
-    return response.status(400).send();
+    return response.status(400).json({ error: "Usuário não encontrado" });
 }
 
 module.exports = {
