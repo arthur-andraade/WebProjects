@@ -6,7 +6,7 @@ function gerarToken(dados){
             id: 1,
             nome: dados.nome
         },
-        "projetoweb",
+        process.env.JWT_KEY,
         {
             algorithm: "HS256"
         }
