@@ -18,6 +18,33 @@ async function create(request, response) {
     }
 }
 
+async function search(request, response) {
+    const { search } = request.query;
+
+    if (!search) {
+        try {
+            const publications = await Publication.find().limit(10);
+            return response.status(200).json({ publications });
+        } catch (error) {
+            return response.status(405).json({ error });
+        }
+    }
+
+    try {
+        const searchRegex = new RegExp(search, "i");
+
+        const publications = await Publication.find({
+            title: searchRegex,
+            content: searchRegex
+        });
+
+        return response.status(200).json({ publications });
+    } catch (error) {
+        return response.status(405).json({ error });
+    }
+}
+
 module.exports = {
-    create
+    create,
+    search
 }

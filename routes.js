@@ -9,5 +9,6 @@ const PublicationController = require("./controller/PublicationController");
 router.post("/login", validatorLogin, LoginController.signIn);
 router.post("/register", SignupController.register);
 router.post("/makepub", auth, PublicationController.create);
+router.get("/publication", auth, PublicationController.search);
 
 module.exports = router;
