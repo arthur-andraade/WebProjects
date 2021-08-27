@@ -1,4 +1,4 @@
-const User = require("../model/User");
+const { User } = require("../model/User");
 const bcrypt = require("bcryptjs")
 const gerarToken = require("../utils/jwt");
 
@@ -11,7 +11,7 @@ async function signIn(request, response) {
     if (userFinded) {
         const passwordIsCorrect = await bcrypt.compare(data.password, userFinded.password);
         if (passwordIsCorrect) {
-            const token = gerarToken(data);
+            const token = gerarToken(userFinded);
             response.cookie('token', token);
             return response.status(200).send();
         }

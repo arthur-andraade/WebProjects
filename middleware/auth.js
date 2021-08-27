@@ -6,8 +6,10 @@ function auth(request, response, next) {
         const tokenDecodificado = JWT.verify(token, "projetoweb");
         request.body = {
             ...request.body,
-            id: tokenDecodificado.id,
-            nome: tokenDecodificado.nome
+            user: {
+                id: tokenDecodificado.id,
+                nome: tokenDecodificado.name 
+            }
         }
         next();
     } catch (error) {
