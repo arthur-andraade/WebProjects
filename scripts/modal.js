@@ -15,3 +15,8 @@ const loginButton = document.querySelector('.loginBtn');
 loginButton.addEventListener('click', () => {
   showModal('background-modal')
 })
+
+const registerButton = document.querySelector('.registerBtn');
+registerButton.addEventListener('click', () => {
+  showModal('background-modal-register')
+})

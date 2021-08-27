@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="styles/menu.css">
   <link rel="stylesheet" href="styles/loginModal.css">
   <link rel="stylesheet" href="styles/dataModal.css">
+  <link rel="stylesheet" href="styles/registerModal.css">
 
   <title>Startbucks® na sua casa | Starbucks</title>
 </head>
@@ -48,6 +49,7 @@
             </div>
           </div>
           <button class="loginBtn">Login</button>
+          <button class="registerBtn">Registra-se</button>
         </div>
         <div class="menuToggle">
           <div class="one"></div>
@@ -72,7 +74,7 @@
         </div>
     </main>
 
-  <!-- Modal -->
+  <!-- Modal Login -->
   <div id="background-modal" class='modal-container'>
     <div class=container>
       <button class="exitModal">
@@ -92,6 +94,34 @@
           <input id="password" type="password" placeholder="Insira sua senha">
         </div>
         <button type="submit" class="submitBtn" >Entrar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal para registro -->
+  <div id="background-modal-register" class='modal-container-register'>
+    <div class=container-register>
+      <button class="exitModal">
+        <img  class="closeBtn" src="assets/close-icon.png" alt="Fechar">
+      </button>
+      <div class=greeting>
+        <span class='welcome'>Seja Bem-Vindo(a)</span>
+        <span class='yourAccount'>Crie aqui a sua conta!</span>
+      </div>
+      
+      <div class="content-register">
+        <span class="errorMessageRegister">Esse email já foi cadastrado!</span>
+        <div class="content-area-email-register">
+          <input id="email" type="text" placeholder="Insira um e-mail válido">
+        </div>
+        <div class="content-area-username-register">
+          <input id="username" type="text" placeholder="Insira o seu nome de usuário" >
+        </div>
+        <div class="content-area-password-register">
+          <input id="password" type="password" placeholder="Insira uma senha">
+        </div>
+        <button type="submit" class="submitBtnRegister" >Criar conta</button>
       </div>
     </div>
   </div>

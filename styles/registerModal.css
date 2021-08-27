@@ -1,0 +1,161 @@
+.modal-container-register{
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container-register.show{
+  display: flex;
+}
+
+.container-register{
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 350px;
+  background-color: #FFF;
+  border-radius: 5px;
+  position: relative;
+}
+
+@keyframes modal{
+  from{
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+
+  }
+}
+
+.show .container-register{
+  animation: modal .5s;
+}
+
+.exitModal{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.greeting{
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.welcome{
+  font-family: 'Karla', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #366D49;
+  margin-bottom: 6px;
+}
+
+.yourAccount{
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: #000;
+  opacity: .3;
+  letter-spacing: 0.8px;
+}
+
+.content-register{
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  height: 220px;
+  margin-left: 40px;
+}
+
+.errorMessageRegister{
+  display: none;
+  font-family: 'Karla', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: red;
+  margin: 0 auto;
+  text-align: center;
+
+}
+.content-area-email-register input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+
+.content-area-email-register input:focus{
+  border: 2px solid #366D49;
+}
+
+.content-area-username-register input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  padding: 12px;
+  outline: none;
+}
+
+.content-area-username-register input:focus{
+  border: 2px solid #366D49;
+}
+
+
+
+.content-area-password-register input{
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.content-area-password-register input:focus{
+  border: 2px solid #366D49;
+}
+
+.submitBtnRegister{
+  width: 50%;
+  margin: 0 auto;
+  background-color: #366D49;
+  border: none;
+  border-radius: 50px;
+  height: 40px;
+  color: #fff;
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.submitBtnRegister:hover{
+  background-color: #fff;
+  border: 1px solid #366D49;
+  color: #366D49;
+}
