@@ -8,7 +8,7 @@ function enableSearch(enable) {
   }
 }
 
-if (document.cookie.includes("token")) {
+if (localStorage.getItem("token")) {
   document.getElementsByClassName('loginBtn')[0].style.display = 'none';
   enableSearch(true)
 } else {
@@ -40,10 +40,11 @@ function login() {
         document.getElementsByClassName('loginBtn')[0].style.display = 'none';
         document.getElementsByClassName('modal-container')[0].style.display = 'none';
         enableSearch(true)
+        return response.json();
       }
-    }).catch((error)=>{
-      console.log(error)
-    })
+    }).then((json)=> {
+      localStorage.setItem("token", json.token);
+    });
   }
 
 }
