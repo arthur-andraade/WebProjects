@@ -5,11 +5,28 @@ const formPublication = document.getElementById(idModalPublication).getElementsB
 const buttonSubmit = formPublication.getElementsByTagName("button")[0];
 const buttonSearch = document.getElementsByClassName("search")[0].getElementsByClassName("searchBtn")[0]
 const token = localStorage.getItem("token");
+const containerPublications = document.getElementById("container-publication");
+
+function buildPublicationComponent(data) {
+
+    const { title, author, content } = data;
+    return `
+        <div class="publication">
+            <span class="publication-title">${title}</span>
+            <span class="publication-author">${author.username}</span>
+            <div class="publication-content">
+                <p>
+                    ${content}
+                </p>
+            </div>
+        </div>
+    `;
+}
 
 function doPublication() {
     const title = document.getElementById("title-pub").value;
     const content = document.getElementById("content-pub").value;
-    
+
     fetch(URL_TO_DO_PUBLICATION, {
         method: "POST",
         headers: {
@@ -22,7 +39,7 @@ function doPublication() {
     }).then((response) => {
         return response.json();
     }).then(json => {
-        console.log(json);
+        containerPublications.innerHTML += buildPublicationComponent(json.publication);
     });
 
     closeModalToDoPublication();
@@ -41,8 +58,12 @@ function searchPublication() {
         credentials: "same-origin",
     }).then((response) => {
         return response.json();
-    }).then((json)=>{
-        console.log(json);
+    }).then((json) => {
+        containerPublications.innerHTML = "";
+        json.publications.forEach(pub => {
+            const pubComponent = buildPublicationComponent(pub);
+            containerPublications.innerHTML += pubComponent;
+        });
     })
 }
 
@@ -51,4 +72,4 @@ function closeModalToDoPublication() {
 }
 
 buttonSubmit.addEventListener("click", doPublication);
-buttonSearch.addEventListener("click" , searchPublication);
+buttonSearch.addEventListener("click", searchPublication);

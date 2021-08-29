@@ -1,0 +1,32 @@
+#container-publication {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+}
+
+.publication {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid #366D49;
+    padding: 5px 10px;
+}
+
+.publication-author {
+    color: #90b18f;
+}
+
+.publication-title {
+    font-family: 'Karla', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #366D49;
+}
+
+.publication-content {
+    color: #7e9973
+}
+
+.publication + .publication {
+    margin-top: 8px;
+}
