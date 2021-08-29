@@ -34,8 +34,7 @@ async function search(request, response) {
         const searchRegex = new RegExp(search, "i");
 
         const publications = await Publication.find({
-            title: searchRegex,
-            content: searchRegex
+            $or: [{ title: searchRegex }, { content: searchRegex }]
         });
 
         return response.status(200).json({ publications });
