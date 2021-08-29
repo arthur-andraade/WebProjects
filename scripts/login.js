@@ -10,8 +10,10 @@ function enableSearch(enable) {
 
 if (localStorage.getItem("token")) {
   document.getElementsByClassName('loginBtn')[0].style.display = 'none';
+  document.getElementsByClassName('registerBtn')[0].style.display = 'none';
   enableSearch(true)
 } else {
+  document.getElementsByClassName("btnExploreCoffe")[0].disabled = true;
   enableSearch(false)
 }
 
@@ -38,6 +40,8 @@ function login() {
     }).then((response)=>{
       if(response.status == 200){
         document.getElementsByClassName('loginBtn')[0].style.display = 'none';
+        document.getElementsByClassName('registerBtn')[0].style.display = 'none';
+        document.getElementsByClassName("btnExploreCoffe")[0].disabled = false;
         document.getElementsByClassName('modal-container')[0].style.display = 'none';
         enableSearch(true)
         return response.json();

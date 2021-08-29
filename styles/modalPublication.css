@@ -1,5 +1,5 @@
 #modal-publication .container {
-    height: 400px;
+    height: 410px;
 }
 
 #publication {
@@ -16,9 +16,13 @@
 
 #publication input, #publication textarea {
     margin-bottom: 10px;
+    padding-left: 8px;
+}
+
+#publication textarea {
+    padding-top: 6px;
 }
 
 #publication input {
     height: 30px;
-    padding-left: 8px;
 }
