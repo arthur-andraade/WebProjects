@@ -1,4 +1,4 @@
-const URL_API_LOGIN = "https://reqres.in";
+const URL_API_LOGIN = "https://projetoweb-server.herokuapp.com/login";
 let request_login = new XMLHttpRequest();
 
 function enableSearch(enable) {
@@ -8,7 +8,7 @@ function enableSearch(enable) {
   }
 }
 
-if (localStorage.getItem("token")) {
+if (document.cookie.includes("token")) {
   document.getElementsByClassName('loginBtn')[0].style.display = 'none';
   enableSearch(true)
 } else {
@@ -26,20 +26,24 @@ function login() {
       email,
       password
     }
-    request_login.open("POST", URL_API_LOGIN + "/api/login", true);
-    request_login.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
-    request_login.onreadystatechange = function () {
-      if (request_login.readyState === 4 && request_login.status === 200) {
-        localStorage.setItem("token", JSON.parse(request_login.responseText).token)
+
+    fetch(URL_API_LOGIN, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: "same-origin",
+      body: JSON.stringify(data),
+    }).then((response)=>{
+      if(response.status == 200){
         document.getElementsByClassName('loginBtn')[0].style.display = 'none';
         document.getElementsByClassName('modal-container')[0].style.display = 'none';
         enableSearch(true)
-      } else if (request_login.status === 400) {
-        document.getElementsByClassName('errorMessage')[0].style.display = 'flex'
-
       }
-    }
-    request_login.send(JSON.stringify(data));
+    }).catch((error)=>{
+      console.log(error)
+    })
   }
 
 }

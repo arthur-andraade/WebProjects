@@ -1,10 +1,25 @@
+const URL_TO_DO_PUBLICATION = "https://projetoweb-server.herokuapp.com/makepub";
 const idModalPublication = "modal-publication";
 const formPublication = document.getElementById(idModalPublication).getElementsByTagName("form")[0];
 const buttonSubmit = formPublication.getElementsByTagName("button")[0];
 
 function doPublication() {
-    const inputTitle = document.getElementById("title-pub").value;
-    const inputContent = document.getElementById("content-pub").value;
+    const title = document.getElementById("title-pub").value;
+    const content = document.getElementById("content-pub").value;
+
+    fetch(URL_TO_DO_PUBLICATION, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: "same-origin",
+        body: JSON.stringify({ title, content })
+    }).then((response) => {
+        console.log(response)
+    }).catch((error) => {
+        console.log(error);
+    });
 
     closeModalToDoPublication();
 }
