@@ -2,7 +2,7 @@ const JWT = require("jsonwebtoken");
 
 function auth(request, response, next) {
     try {
-        const token = request.cookies["token"];
+        const token = request.header("Authorization").split(" ")[1];
         const tokenDecodificado = JWT.verify(token, "projetoweb");
         request.body = {
             ...request.body,
