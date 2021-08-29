@@ -6,12 +6,14 @@ const buttonSubmit = formPublication.getElementsByTagName("button")[0];
 function doPublication() {
     const title = document.getElementById("title-pub").value;
     const content = document.getElementById("content-pub").value;
+    const token = localStorage.getItem("token");
 
     fetch(URL_TO_DO_PUBLICATION, {
         method: "POST",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
         },
         credentials: "same-origin",
         body: JSON.stringify({ title, content })
