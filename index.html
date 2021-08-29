@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="styles/loginModal.css">
   <link rel="stylesheet" href="styles/dataModal.css">
   <link rel="stylesheet" href="styles/registerModal.css">
+  <link rel="stylesheet" href="styles/modalPublication.css">
 
   <title>Startbucks® na sua casa | Starbucks</title>
 </head>
@@ -70,10 +71,10 @@
         <div class="bodyDescription">
             <h1>Starbucks<span><sup>&reg</sup></span> na sua casa</h1>
             <span>Curta o café Starbucks<span><sup>&reg</sup></span> que você tanto adora, em uma de nossas lojas ou na sua casa.</span>
-            <button class="btnExploreCoffe">Explore nossos cafés</button>
+            <button class="btnExploreCoffe">Faça uma publicação</button>
         </div>
     </main>
-
+    <div id="container-publication"></div>
   <!-- Modal Login -->
   <div id="background-modal" class='modal-container'>
     <div class=container>
@@ -97,7 +98,6 @@
       </div>
     </div>
   </div>
-
 
   <!-- Modal para registro -->
   <div id="background-modal-register" class='modal-container-register'>
@@ -126,31 +126,33 @@
     </div>
   </div>
 
-  <!--Modal do dados da API-->
-  <div id="data-modal" class="modal-container">
+  <!--Modal para fazer publicação-->
+  <div id="modal-publication" class='modal-container'>
     <div class="container">
       <button class="exitModal">
-        <img class="closeBtn" src="assets/close-icon.png" alt="Fechar">
+        <img  class="closeBtn" src="assets/close-icon.png" alt="Fechar">
       </button>
+      <div class=greeting>
+        <span class='welcome'>Faça uma publicação</span>
+      </div>
       <div class="content">
-        <div class="info">
-          <span class="info-name">Nome</span>
-          <span class="info-value"></span>
-        </div>
-        <div class="info">
-          <span class="info-name">Nome</span>
-          <span class="info-value"></span>
-        </div>
-        <div class="info">
-          <span class="info-name">Nome</span>
-          <span class="info-value"></span>
-        </div>
+        <form id="publication">
+          <label class="field-label" for="title-pub">Titulo</label>
+          <input type="text" name="title-pub" id="title-pub" placeholder="Insira um título para publicação">
+          
+          <label class="field-label" for="content-pub">Contéudo</label>
+          <textarea name="content-pub" id="content-pub" cols="30" rows="10"></textarea>
+          
+          <button class="submitBtnRegister">Fazer publicação</button>
+        </form>
       </div>
     </div>
   </div>
-  <script src="./scripts/modal.js"></script>
+  
+  <script src="scripts/modal.js"></script>
   <script src="scripts/searchAPI.js"></script>
   <script src="scripts/login.js"></script>
+  <script src="scripts/publication.js" ></script>
 </body>
 
 </html>

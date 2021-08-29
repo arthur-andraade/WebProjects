@@ -20,3 +20,10 @@ const registerButton = document.querySelector('.registerBtn');
 registerButton.addEventListener('click', () => {
   showModal('background-modal-register')
 })
+
+const buttonDoPublication = document.getElementsByClassName("bodyDescription")[0]
+    .getElementsByTagName("button")[0];
+
+buttonDoPublication.addEventListener("click" , () => {
+    showModal("modal-publication");
+})
