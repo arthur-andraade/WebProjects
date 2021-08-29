@@ -12,8 +12,9 @@ async function signIn(request, response) {
         const passwordIsCorrect = await bcrypt.compare(data.password, userFinded.password);
         if (passwordIsCorrect) {
             const token = gerarToken(userFinded);
-            response.cookie('token', token);
-            return response.status(200).send();
+            return response.status(200).json({
+                token
+            });
         }
 
         return response.status(400).json({ error: "Senha incorreta" });
