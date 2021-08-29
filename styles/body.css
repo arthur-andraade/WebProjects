@@ -65,6 +65,12 @@ main {
     color: #006c49;
 }
 
+.btnExploreCoffe:disabled, .btnExploreCoffe:hover:disabled {
+    background: #688a7f;
+    color: white;
+    cursor: none;
+}
+
 @media (max-width: 1000px){
     main {
         flex-direction: column;

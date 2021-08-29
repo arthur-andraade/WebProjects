@@ -1,0 +1,28 @@
+#modal-publication .container {
+    height: 410px;
+}
+
+#publication {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-label {
+    font-family: 'Karla', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #366D49;
+}
+
+#publication input, #publication textarea {
+    margin-bottom: 10px;
+    padding-left: 8px;
+}
+
+#publication textarea {
+    padding-top: 6px;
+}
+
+#publication input {
+    height: 30px;
+}
